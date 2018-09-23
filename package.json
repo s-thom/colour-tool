@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chroma-js": "^1.3.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts-ts": "2.17.0"
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@sthom/linter-config": "^1.4.0",
+    "@types/chroma-js": "^1.3.6",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.10.3",
     "@types/react": "^16.4.14",
