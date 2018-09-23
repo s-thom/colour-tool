@@ -1,19 +1,17 @@
 import * as React from 'react';
+import * as chroma from 'chroma-js';
 import './index.css';
 
-import logo from './logo.svg';
+import ColorPickerApp from '../ColorPickerApp';
 
 class App extends React.Component {
-  public render() {
+  render() {
+    const start = chroma('#123');
+    const end = chroma('#f6d');
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <ColorPickerApp />
       </div>
     );
   }
