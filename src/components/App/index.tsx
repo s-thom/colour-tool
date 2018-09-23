@@ -6,7 +6,7 @@ import logo from './logo.svg';
 import GradientSlider from '../GradientSlider';
 
 class App extends React.Component {
-  public render() {
+  render() {
     const start = chroma('#123');
     const end = chroma('#f6d');
 
@@ -20,9 +20,11 @@ class App extends React.Component {
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
         <GradientSlider
-          start={start}
-          end={end}
-          currentPercentage={0}
+          startColor={start}
+          endColor={end}
+          startNumeric={0}
+          endNumeric={255}
+          current={36}
           onValueChanged={(v) => console.log('is', v)}
         />
       </div>
