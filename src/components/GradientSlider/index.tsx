@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
+import './index.css';
 
 interface IGradientSliderProps {
   startColor: chroma.Color;
@@ -49,7 +50,8 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
           style={{
             left: `${currentPercentage * 100}%`,
           }}
-        >{current}</span>
+          title={current.toString()}
+        />
         <div
           className="GradientSlider-gradient"
           style={{
