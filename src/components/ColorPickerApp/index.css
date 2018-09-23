@@ -1,0 +1,14 @@
+.ColorPickerApp {
+  padding: 1em;
+  height: 100%;
+}
+
+.ColorPickerApp-info-container {
+
+}
+
+.ColorPickerApp-sliders-container {
+  background-color: #ffffff;
+  box-shadow: 0px 1px 8px 2px rgba(110,110,110,1);
+  padding: 1em;
+}
