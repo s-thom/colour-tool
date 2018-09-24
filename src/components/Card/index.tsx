@@ -16,12 +16,9 @@ export default class Card extends React.Component<ICardProps> {
     let classString = 'Card';
 
     if (className) {
-      const classes = [
-        'card',
-      ];
-      classes.push(...`${classString} ${className}`.split(/\s+/));
-
-      classString = classes.join(' ');
+      classString = `${classString} ${className}`
+        .split(/\s+/)
+        .join(' ');
     }
 
     return (
