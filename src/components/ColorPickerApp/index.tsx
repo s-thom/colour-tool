@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
 import './index.css';
+import Card from '../Card';
 import ColorPickerSliders from '../ColorPickerSliders';
 
 interface IColorPickerAppProps {
@@ -43,12 +44,12 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
       >
         <div className="ColorPickerApp-info-container">
         </div>
-        <div className="ColorPickerApp-sliders-container">
+        <Card className="ColorPickerApp-sliders-container">
           <ColorPickerSliders
             color={current}
             onColorChange={this.onColorChange}
           />
-        </div>
+        </Card>
       </div>
 
     );
