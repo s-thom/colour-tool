@@ -46,19 +46,21 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
 
     return (
       <div className="GradientSlider">
-        <span className="GradientSlider-indicator"
-          style={{
-            left: `${currentPercentage * 100}%`,
-          }}
-          title={current.toString()}
-        />
-        <div
-          className="GradientSlider-gradient"
-          style={{
-            background: cssGradient,
-          }}
-          onClick={this.onGradientClick}
-        />
+        <div className="GradientSlider-gradient-container">
+          <span className="GradientSlider-indicator"
+            style={{
+              left: `${currentPercentage * 100}%`,
+            }}
+            title={current.toString()}
+          />
+          <div
+            className="GradientSlider-gradient"
+            style={{
+              background: cssGradient,
+            }}
+            onClick={this.onGradientClick}
+          />
+        </div>
         <div className="GradientSlider-input-container">
           <input
             type="number"
