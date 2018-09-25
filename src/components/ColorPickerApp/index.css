@@ -4,8 +4,24 @@
 }
 
 .ColorPickerApp-info-container {
-
+  margin-bottom: 1em;
 }
 
 .ColorPickerApp-sliders-container {
+}
+
+@media (min-width: 900px) {
+  .ColorPickerApp {
+    display: flex;
+  }
+
+  .ColorPickerApp-info-container {
+    margin-bottom: 0;
+    margin-right: 1em;
+    flex-grow: 1;
+  }
+
+  .ColorPickerApp-sliders-container {
+    flex-basis: 300px;
+  }
 }
