@@ -1,3 +1,20 @@
 .Swatch {
   position: relative;
+  height: 6em;
+  width: 6em;
+}
+
+.Swatch-clickable {
+  cursor: pointer;
+}
+
+.Swatch-title {
+  position: absolute;
+}
+
+.Swatch-info {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  font-family: 'Courier New', Courier, monospace;
 }

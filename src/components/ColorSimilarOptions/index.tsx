@@ -38,21 +38,61 @@ export default class ColorSimilarOptions extends React.Component<IColorSimilarOp
         <div className="ColorSimilarOptions-row">
           <h2 className="ColorSimilarOptions-heading">Saturation</h2>
           <div className="ColorSimilarOptions-swatches">
-            <Swatch color={satNeg2} showHex={true} />
-            <Swatch color={satNeg1} showHex={true} />
-            <Swatch color={color} showHex={true} />
-            <Swatch color={satPos1} showHex={true} />
-            <Swatch color={satPos2} showHex={true} />
+            <Swatch
+              color={satNeg2}
+              showHex={true}
+              onClick={() => this.onColorChange(satNeg2)}
+            />
+            <Swatch
+              color={satNeg1}
+              showHex={true}
+              onClick={() => this.onColorChange(satNeg1)}
+            />
+            <Swatch
+              color={color}
+              showHex={true}
+              onClick={() => this.onColorChange(color)}
+            />
+            <Swatch
+              color={satPos1}
+              showHex={true}
+              onClick={() => this.onColorChange(satPos1)}
+            />
+            <Swatch
+              color={satPos2}
+              showHex={true}
+              onClick={() => this.onColorChange(satPos2)}
+            />
           </div>
         </div>
         <div className="ColorSimilarOptions-row">
           <h2 className="ColorSimilarOptions-heading">Brightness</h2>
           <div className="ColorSimilarOptions-swatches">
-            <Swatch color={brightNeg2} showHex={true} />
-            <Swatch color={brightNeg1} showHex={true} />
-            <Swatch color={color} showHex={true} />
-            <Swatch color={brightPos1} showHex={true} />
-            <Swatch color={brightPos2} showHex={true} />
+            <Swatch
+              color={brightNeg2}
+              showHex={true}
+              onClick={() => this.onColorChange(brightNeg2)}
+            />
+            <Swatch
+              color={brightNeg1}
+              showHex={true}
+              onClick={() => this.onColorChange(brightNeg1)}
+            />
+            <Swatch
+              color={color}
+              showHex={true}
+              onClick={() => this.onColorChange(color)}
+            />
+            <Swatch
+              color={brightPos1}
+              showHex={true}
+              onClick={() => this.onColorChange(brightPos1)}
+            />
+            <Swatch
+              color={brightPos2}
+              showHex={true}
+              onClick={() => this.onColorChange(brightPos2)}
+            />
           </div>
         </div>
       </div>
