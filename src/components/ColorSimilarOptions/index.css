@@ -1,0 +1,8 @@
+.ColorSimilarOptions {
+
+}
+
+.ColorSimilarOptions-swatches {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -25,7 +25,7 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
 
     const xOffset = event.clientX - elementBox.left;
     const percentage = xOffset / elementBox.width;
-    const endValue = Math.floor(percentage * (this.props.endNumeric - this.props.startNumeric));
+    const endValue = Math.floor(percentage * ((this.props.endNumeric - this.props.startNumeric) + 1));
 
     this.props.onValueChanged(endValue);
   }

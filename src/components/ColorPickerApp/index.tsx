@@ -4,7 +4,8 @@ import autobind from 'autobind-decorator';
 import './index.css';
 import Card from '../Card';
 import ColorPickerSliders from '../ColorPickerSliders';
-import ColorInfo from '../ColorInfo';
+import ColorInfoTable from '../ColorInfoTable';
+import ColorSimilarOptions from '../ColorSimilarOptions';
 
 interface IColorPickerAppProps {
   temp?: false;
@@ -44,7 +45,10 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
         }}
       >
         <Card className="ColorPickerApp-info-container">
-          <ColorInfo
+          <ColorInfoTable
+            color={current}
+          />
+          <ColorSimilarOptions
             color={current}
             onColorChange={this.onColorChange}
           />
