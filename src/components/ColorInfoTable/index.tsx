@@ -85,7 +85,7 @@ export default class ColorInfoTable extends React.Component<IColorInfoTableProps
                 L: <ColorSpan color={lumColor}>{(hslArr[2]).toFixed(2)}</ColorSpan>
               </td>
               <td>
-                <ColorSpan color={color}>{`hsl(${(hslArr[0] || 0).toFixed(2)}deg, ${hslArr[1].toFixed(2)}%, ${hslArr[2].toFixed(2)}%)`}</ColorSpan>
+                <ColorSpan color={color}>{color.css('hsl')}</ColorSpan>
               </td>
             </tr>
             <tr>
