@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as chroma from 'chroma-js';
 import './index.css';
+import ContrastText from '../ContrastText';
 
 interface IColorSpanProps {
   className?: string;
@@ -31,10 +32,11 @@ export default class ColorSpan extends React.Component<IColorSpanProps> {
         className={classString}
         style={{
           backgroundColor: color.css(),
-          color: useWhite ? '#FFFFFF' : '#000000',
         }}
       >
-        {children}
+        <ContrastText
+          bgColor={color}
+        >{children}</ContrastText>
       </span>
     );
   }
