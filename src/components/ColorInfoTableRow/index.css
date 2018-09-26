@@ -4,6 +4,7 @@
   grid-template-areas:
     'title str'
     'parts parts';
+  gap: 0.2em;
 }
 
 .ColorInfoTableRow-title {
