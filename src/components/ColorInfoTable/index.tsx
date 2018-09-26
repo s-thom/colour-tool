@@ -1,48 +1,9 @@
 import * as React from 'react';
 import * as chroma from 'chroma-js';
-import autobind from 'autobind-decorator';
 import './index.css';
-import ColorSpan from '../ColorSpan';
-
-interface IColorPart {
-  color: chroma.Color;
-  name: string;
-  text: string;
-}
-
-interface IColorInfoTableRowProps {
-  color: chroma.Color;
-  parts: IColorPart[];
-  stringified?: string;
-  title: string;
-}
-
-class ColorInfoTableRow extends React.Component<IColorInfoTableRowProps> {
-  render() {
-    const {
-      color,
-      parts,
-      stringified,
-      title,
-    } = this.props;
-
-    const partElements = parts.map(p => (
-      <td key={p.name}>
-        {p.name}: <ColorSpan color={p.color}>{p.text}</ColorSpan>
-      </td>
-    ));
-
-    return (
-      <tr>
-        <td>{title}:</td>
-        {partElements}
-        {stringified && (
-          <td><ColorSpan color={color}>{stringified}</ColorSpan></td>
-        )}
-      </tr>
-    );
-  }
-}
+import ColorInfoTableRow, {
+  IColorPart,
+} from '../ColorInfoTableRow';
 
 interface IColorInfoTableProps {
   color: chroma.Color;
