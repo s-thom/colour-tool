@@ -27,9 +27,9 @@ export default class SwatchList extends React.Component<ISwatchListProps> {
 
     return (
       <div className="SwatchList">
-        {colors.map(c => (
+        {colors.map((c, index) => (
           <Swatch
-            key={c.hex()}
+            key={`${index}${c.hex()}`}
             color={c}
             showHex={showHex}
             onClick={() => this.onSwatchClicked(c)}
