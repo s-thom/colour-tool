@@ -20,6 +20,7 @@ export default class ColorInfoTable extends React.Component<IColorInfoTableProps
     const hsvArr = color.hsv();
     const labArr = color.lab();
     const hclArr = color.hcl();
+    const cmykArr = color.cmyk();
 
     // RGB(A)
     const redColor = chroma.rgb(rgbArr[0], 0, 0);
@@ -40,6 +41,11 @@ export default class ColorInfoTable extends React.Component<IColorInfoTableProps
     const hue2Color = chroma.lch(50, 50, hclArr[0]);
     const chromaColor = chroma.lch(50, hclArr[1], hclArr[0]);
     const ligColor = chroma.lch(hclArr[2], 0, 0);
+    // CMYK
+    const cColor = chroma.cmyk(cmykArr[0], 0, 0, 0);
+    const mColor = chroma.cmyk(0, cmykArr[1], 0, 0);
+    const yColor = chroma.cmyk(0, 0, cmykArr[2], 0);
+    const kColor = chroma.cmyk(0, 0, 0, cmykArr[3]);
 
     return (
       <div className="ColorInfo">
@@ -126,6 +132,21 @@ export default class ColorInfoTable extends React.Component<IColorInfoTableProps
                 L: <ColorSpan color={ligColor}>{(hclArr[2]).toFixed(2)}</ColorSpan>
               </td>
               <td></td>
+            </tr>
+            <tr>
+              <td>CMYK:</td>
+              <td>
+                C: <ColorSpan color={cColor}>{(cmykArr[0]).toFixed(2)}</ColorSpan>
+              </td>
+              <td>
+                M: <ColorSpan color={mColor}>{(cmykArr[1]).toFixed(2)}</ColorSpan>
+              </td>
+              <td>
+                Y: <ColorSpan color={yColor}>{(cmykArr[2]).toFixed(2)}</ColorSpan>
+              </td>
+              <td>
+                K: <ColorSpan color={kColor}>{(cmykArr[3]).toFixed(2)}</ColorSpan>
+              </td>
             </tr>
           </table>
         </div>
