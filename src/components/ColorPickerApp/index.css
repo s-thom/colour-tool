@@ -25,6 +25,17 @@
   margin-bottom: 1em;
 }
 
+.ColorPickerApp-random-container {
+  margin-top: 1em;
+}
+
+.ColorPickerApp-random-button {
+  border: none;
+  border-radius: 0.1em;
+  padding: 0.4em 0.6em;
+  font-size: 1.2em;
+}
+
 @media (min-width: 900px) {
   .ColorPickerApp-content {
     flex-direction: row;

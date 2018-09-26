@@ -6,6 +6,7 @@ import Card from '../Card';
 import ColorPickerSliders from '../ColorPickerSliders';
 import ColorInfoTable from '../ColorInfoTable';
 import ColorSimilarOptions from '../ColorSimilarOptions';
+import ContrastText from '../ContrastText';
 
 interface IColorPickerAppProps {
   temp?: false;
@@ -30,6 +31,11 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
       ...prevState,
       current: color,
     }));
+  }
+
+  @autobind
+  onRandomClick() {
+    this.onColorChange(chroma.random());
   }
 
   render() {
@@ -60,6 +66,17 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
               color={current}
               onColorChange={this.onColorChange}
             />
+            <div className="ColorPickerApp-random-container">
+              <button
+                className="ColorPickerApp-random-button"
+                style={{
+                  backgroundColor: current.css(),
+                }}
+                onClick={this.onRandomClick}
+              >
+                <ContrastText bgColor={current}>Random</ContrastText>
+              </button>
+            </div>
           </Card>
         </div>
       </div>
