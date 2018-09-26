@@ -1,0 +1,26 @@
+.ColorInfoTableRow {
+  display: grid;
+  grid-template-columns: auto fit-content(0);
+  grid-template-areas:
+    'title str'
+    'parts parts';
+}
+
+.ColorInfoTableRow-title {
+  grid-area: title;
+  font-size: 1.1em;
+}
+
+.ColorInfoTableRow-color-string {
+  grid-area: str;
+}
+
+.ColorInfoTableRow-parts {
+  grid-area: parts;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ColorInfoTableRow-part {
+
+}

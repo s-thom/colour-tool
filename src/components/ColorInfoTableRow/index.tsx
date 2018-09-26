@@ -26,19 +26,23 @@ export default class ColorInfoTableRow extends React.Component<IColorInfoTableRo
     } = this.props;
 
     const partElements = parts.map(p => (
-      <td key={p.name}>
-        {p.name}: <ColorSpan color={p.color}>{p.text}</ColorSpan>
-      </td>
+      <span className="ColorInfoTableRow-part" key={p.name}>
+        <span className="ColorInfoTableRow-part-name">{p.name}</span>
+        <span>: </span>
+        <ColorSpan color={p.color} className="ColorInfoTableRow-part-text">{p.text}</ColorSpan>
+      </span>
     ));
 
     return (
-      <tr>
-        <td>{title}:</td>
-        {partElements}
+      <div className="ColorInfoTableRow">
+        <span className="ColorInfoTableRow-title">{title}</span>
         {stringified && (
-          <td><ColorSpan color={color}>{stringified}</ColorSpan></td>
+          <ColorSpan color={color} className="ColorInfoTableRow-color-string">{stringified}</ColorSpan>
         )}
-      </tr>
+        <div className="ColorInfoTableRow-parts">
+          {partElements}
+        </div>
+      </div>
     );
   }
 }
