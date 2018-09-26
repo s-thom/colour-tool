@@ -1,18 +1,21 @@
 .ColorPickerApp {
   padding: 1em;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .ColorPickerApp-info-container {
-  margin-bottom: 1em;
 }
 
 .ColorPickerApp-sliders-container {
+  order: -1;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 900px) {
   .ColorPickerApp {
-    display: flex;
+    flex-direction: row;
   }
 
   .ColorPickerApp-info-container {
@@ -23,5 +26,23 @@
 
   .ColorPickerApp-sliders-container {
     flex-basis: 300px;
+    order: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1300px) {
+
+  .ColorPickerApp-info-container {
+    display: flex;
+  }
+
+  .ColorPickerApp-info-container .ColorInfo {
+    margin-right: 1em;
+    flex-grow: 1;
+  }
+
+  .ColorPickerApp-info-container .ColorSimilarOptions {
+    flex-grow: 1;
   }
 }
