@@ -7,3 +7,9 @@
   text-align: start;
   line-height: 1.5em;
 }
+
+.ColorInfo-table .ColorInfoTableRow:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.2em;
+}

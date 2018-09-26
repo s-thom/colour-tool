@@ -1,18 +1,44 @@
 .ColorPickerApp {
-  padding: 1em;
   height: 100%;
 }
 
+.ColorPickerApp-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.ColorPickerApp-content {
+  position: relative;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
 .ColorPickerApp-info-container {
-  margin-bottom: 1em;
 }
 
 .ColorPickerApp-sliders-container {
+  order: -1;
+  margin-bottom: 1em;
+}
+
+.ColorPickerApp-random-container {
+  margin-top: 1em;
+}
+
+.ColorPickerApp-random-button {
+  border: none;
+  border-radius: 0.1em;
+  padding: 0.4em 0.6em;
+  font-size: 1.2em;
 }
 
 @media (min-width: 900px) {
-  .ColorPickerApp {
-    display: flex;
+  .ColorPickerApp-content {
+    flex-direction: row;
   }
 
   .ColorPickerApp-info-container {
@@ -23,5 +49,23 @@
 
   .ColorPickerApp-sliders-container {
     flex-basis: 300px;
+    order: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1300px) {
+
+  .ColorPickerApp-info-container {
+    display: flex;
+  }
+
+  .ColorPickerApp-info-container .ColorInfo {
+    margin-right: 1em;
+    flex-grow: 1;
+  }
+
+  .ColorPickerApp-info-container .ColorSimilarOptions {
+    flex-grow: 1;
   }
 }

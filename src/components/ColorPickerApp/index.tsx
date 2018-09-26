@@ -6,6 +6,7 @@ import Card from '../Card';
 import ColorPickerSliders from '../ColorPickerSliders';
 import ColorInfoTable from '../ColorInfoTable';
 import ColorSimilarOptions from '../ColorSimilarOptions';
+import ContrastText from '../ContrastText';
 
 interface IColorPickerAppProps {
   temp?: false;
@@ -32,33 +33,52 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
     }));
   }
 
+  @autobind
+  onRandomClick() {
+    this.onColorChange(chroma.random());
+  }
+
   render() {
     const {
       current,
     } = this.state;
 
     return (
-      <div
-        className="ColorPickerApp"
-        style={{
-          backgroundColor: current.css(),
-        }}
-      >
-        <Card className="ColorPickerApp-info-container">
-          <ColorInfoTable
-            color={current}
-          />
-          <ColorSimilarOptions
-            color={current}
-            onColorChange={this.onColorChange}
-          />
-        </Card>
-        <Card className="ColorPickerApp-sliders-container">
-          <ColorPickerSliders
-            color={current}
-            onColorChange={this.onColorChange}
-          />
-        </Card>
+      <div className="ColorPickerApp">
+        <div
+          className="ColorPickerApp-background"
+          style={{
+            backgroundColor: current.css(),
+          }}
+        />
+        <div className="ColorPickerApp-content">
+          <Card className="ColorPickerApp-info-container">
+            <ColorInfoTable
+              color={current}
+            />
+            <ColorSimilarOptions
+              color={current}
+              onColorChange={this.onColorChange}
+            />
+          </Card>
+          <Card className="ColorPickerApp-sliders-container">
+            <ColorPickerSliders
+              color={current}
+              onColorChange={this.onColorChange}
+            />
+            <div className="ColorPickerApp-random-container">
+              <button
+                className="ColorPickerApp-random-button"
+                style={{
+                  backgroundColor: current.css(),
+                }}
+                onClick={this.onRandomClick}
+              >
+                <ContrastText bgColor={current}>Random</ContrastText>
+              </button>
+            </div>
+          </Card>
+        </div>
       </div>
 
     );
