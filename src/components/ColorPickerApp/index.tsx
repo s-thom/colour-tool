@@ -38,27 +38,30 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
     } = this.state;
 
     return (
-      <div
-        className="ColorPickerApp"
-        style={{
-          backgroundColor: current.css(),
-        }}
-      >
-        <Card className="ColorPickerApp-info-container">
-          <ColorInfoTable
-            color={current}
-          />
-          <ColorSimilarOptions
-            color={current}
-            onColorChange={this.onColorChange}
-          />
-        </Card>
-        <Card className="ColorPickerApp-sliders-container">
-          <ColorPickerSliders
-            color={current}
-            onColorChange={this.onColorChange}
-          />
-        </Card>
+      <div className="ColorPickerApp">
+        <div
+          className="ColorPickerApp-background"
+          style={{
+            backgroundColor: current.css(),
+          }}
+        />
+        <div className="ColorPickerApp-content">
+          <Card className="ColorPickerApp-info-container">
+            <ColorInfoTable
+              color={current}
+            />
+            <ColorSimilarOptions
+              color={current}
+              onColorChange={this.onColorChange}
+            />
+          </Card>
+          <Card className="ColorPickerApp-sliders-container">
+            <ColorPickerSliders
+              color={current}
+              onColorChange={this.onColorChange}
+            />
+          </Card>
+        </div>
       </div>
 
     );
