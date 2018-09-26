@@ -29,13 +29,15 @@ export default class ContrastText extends React.Component<IContrastTextProps> {
         .join(' ');
     }
 
-    const useWhite = chroma.contrast(bgColor, COLOR_LIGHT) > 4.5;
+    const whiteContrast = chroma.contrast(bgColor, COLOR_LIGHT);
+    const blackContrast = chroma.contrast(bgColor, COLOR_DARK);
+    const textColor = whiteContrast > blackContrast ? COLOR_LIGHT : COLOR_DARK;
 
     return (
       <span
         className={classString}
         style={{
-          color: useWhite ? COLOR_LIGHT.css() : COLOR_DARK.css(),
+          color: textColor.css(),
         }}
       >
         {children}
