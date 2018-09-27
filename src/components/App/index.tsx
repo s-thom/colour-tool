@@ -7,7 +7,7 @@ import {
 import * as chroma from 'chroma-js';
 import './index.css';
 
-import ColorPickerApp from '../ColorPickerApp';
+import Route404 from '../Route404';
 import RouteColor from '../RouteColor';
 import RouteRandomColor from '../RouteRandomColor';
 
@@ -21,6 +21,8 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route path="/:color([A-Fa-f0-9]{6})" component={RouteColor} />
+            <Route path="/" component={RouteRandomColor} />
+            <Route component={Route404} />
           </Switch>
         </div>
       </Router>
