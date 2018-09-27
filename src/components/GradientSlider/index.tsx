@@ -109,12 +109,20 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
   }
 
   @autobind
-  onGradientTouchStart() {
+  onGradientTouchStart(event: React.TouchEvent<HTMLDivElement>) {
     this.setState((prevState) => ({
       ...prevState,
       isMouseDown: true,
       isMouseIn: true,
     }));
+
+    // Only use the first touch initiated on this element
+    const usefulTouches = event.targetTouches;
+    if (usefulTouches.length === 0) {
+      return;
+    }
+    const usedTouch = usefulTouches.item(0);
+    this.props.onValueChanged(this.calculateValueForXPosition(usedTouch.clientX));
   }
 
   @autobind
