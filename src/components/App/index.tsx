@@ -4,7 +4,6 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import * as chroma from 'chroma-js';
 import './index.css';
 
 import Route404 from '../Route404';
@@ -13,15 +12,13 @@ import RouteRandomColor from '../RouteRandomColor';
 
 class App extends React.Component {
   render() {
-    const start = chroma('#123');
-    const end = chroma('#f6d');
-
     return (
       <Router>
         <div className="App">
           <Switch>
-            <Route path="/:color([A-Fa-f0-9]{6})" component={RouteColor} />
-            <Route path="/" component={RouteRandomColor} />
+            <Route path="/" exact component={RouteRandomColor} />
+            <Route path="/random" exact component={RouteRandomColor} />
+            <Route path="/:color([A-Fa-f0-9]{6,6})" component={RouteColor} />
             <Route component={Route404} />
           </Switch>
         </div>

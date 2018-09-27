@@ -8,6 +8,7 @@ import ColorInfoTable from '../ColorInfoTable';
 import ColorSimilarOptions from '../ColorSimilarOptions';
 import ContrastText from '../ContrastText';
 import RouterRedirectColor from '../RouterRedirectColor';
+import { Link } from 'react-router-dom';
 
 interface IColorPickerAppProps {
   current: chroma.Color;
@@ -77,15 +78,16 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
               onColorChange={this.onColorChange}
             />
             <div className="ColorPickerApp-random-container">
-              <button
-                className="ColorPickerApp-random-button"
-                style={{
-                  backgroundColor: current.css(),
-                }}
-                onClick={this.onRandomClick}
-              >
-                <ContrastText bgColor={current}>Random</ContrastText>
-              </button>
+              <Link to="/random">
+                <button
+                  className="ColorPickerApp-random-button"
+                  style={{
+                    backgroundColor: current.css(),
+                  }}
+                >
+                  <ContrastText bgColor={current}>Random</ContrastText>
+                </button>
+              </Link>
             </div>
           </Card>
         </div>
