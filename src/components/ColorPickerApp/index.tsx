@@ -7,30 +7,26 @@ import ColorPickerSliders from '../ColorPickerSliders';
 import ColorInfoTable from '../ColorInfoTable';
 import ColorSimilarOptions from '../ColorSimilarOptions';
 import ContrastText from '../ContrastText';
+import RouterRedirectColor from '../RouterRedirectColor';
+import { Link } from 'react-router-dom';
 
 interface IColorPickerAppProps {
-  temp?: false;
-}
-
-interface IColorPickerAppState {
   current: chroma.Color;
+  onColorChange: (color: chroma.Color) => void;
 }
 
-export default class ColorPickerApp extends React.Component<IColorPickerAppProps, IColorPickerAppState> {
+export default class ColorPickerApp extends React.Component<IColorPickerAppProps> {
   constructor(props: IColorPickerAppProps) {
     super(props);
 
     this.state = {
-      current: chroma.random(),
+
     };
   }
 
   @autobind
   onColorChange(color: chroma.Color) {
-    this.setState((prevState) => ({
-      ...prevState,
-      current: color,
-    }));
+    this.props.onColorChange(color);
   }
 
   @autobind
@@ -41,7 +37,7 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
   render() {
     const {
       current,
-    } = this.state;
+    } = this.props;
 
     return (
       <div className="ColorPickerApp">
@@ -58,7 +54,6 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
             />
             <ColorSimilarOptions
               color={current}
-              onColorChange={this.onColorChange}
             />
           </Card>
           <Card className="ColorPickerApp-sliders-container">
@@ -67,15 +62,16 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
               onColorChange={this.onColorChange}
             />
             <div className="ColorPickerApp-random-container">
-              <button
-                className="ColorPickerApp-random-button"
-                style={{
-                  backgroundColor: current.css(),
-                }}
-                onClick={this.onRandomClick}
-              >
-                <ContrastText bgColor={current}>Random</ContrastText>
-              </button>
+              <Link to="/random">
+                <button
+                  className="ColorPickerApp-random-button"
+                  style={{
+                    backgroundColor: current.css(),
+                  }}
+                >
+                  <ContrastText bgColor={current}>Random</ContrastText>
+                </button>
+              </Link>
             </div>
           </Card>
         </div>
