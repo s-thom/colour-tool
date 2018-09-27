@@ -1,0 +1,28 @@
+.Page404 {
+  height: 100%;
+}
+
+.Page404-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.Page404-content {
+  position: relative;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.Page404-card {
+  margin: 0 auto;
+  min-width: 400px;
+}
+
+.Page404-404-container {
+  display: flex;
+  justify-content: space-evenly;
+}

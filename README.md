@@ -8,8 +8,9 @@ Hopefully doing this will help me with picking colours for things. So far it's b
 
 ## TODO
 
-* [ ] Add support for different pages
-* [ ] Put something in the URL when the colour changes?
+* [x] Add support for different pages
+* [x] Put something in the URL when the colour changes?
 * [ ] Colour ramps (Helix)
 * [ ] Colour ramps (Lab)
-* [ ] PWA-ification
+* [x] PWA-ification
+* [ ] PWA-ification 2 (alert when new version available)
