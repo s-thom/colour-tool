@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
 import './index.css';
+import { eventNames } from 'cluster';
 
 interface IGradientSliderProps {
   startColor: chroma.Color;
@@ -71,11 +72,20 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
   }
 
   @autobind
-  onGradientMouseEnter() {
+  onGradientMouseEnter(event: React.MouseEvent) {
     this.setState((prevState) => ({
       ...prevState,
       isMouseIn: true,
     }));
+
+    // Event.buttons is odd if mouse is down
+    // If mouse is up and is entering, then it must've been released outside
+    if (!(event.buttons % 2)) {
+      this.setState((prevState) => ({
+        ...prevState,
+        isMouseDown: false,
+      }));
+    }
   }
 
   @autobind
