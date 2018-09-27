@@ -69,7 +69,6 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
             />
             <ColorSimilarOptions
               color={current}
-              onColorChange={this.onColorChange}
             />
           </Card>
           <Card className="ColorPickerApp-sliders-container">

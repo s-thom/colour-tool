@@ -3,6 +3,9 @@ import * as chroma from 'chroma-js';
 import {
   Redirect,
 } from 'react-router-dom';
+import {
+  hexWithoutHash,
+} from '../../util';
 
 interface IRouterRedirectColorProps {
   color: chroma.Color;
@@ -14,18 +17,15 @@ export default class RouterRedirectColor extends React.Component<IRouterRedirect
       color,
     } = this.props;
 
-    const hexMatch = color
-      .hex()
-      .match(/^#([A-Fa-f0-9]{6})/);
-
-    if (hexMatch) {
-      return (
-        <Redirect to={`/${hexMatch[1]}`} />
-      );
-    } else {
-      return (
-        <Redirect to="/000000" />
-      );
+    let colorString;
+    try {
+      colorString = hexWithoutHash(color);
+    } catch (err) {
+      colorString = '000000';
     }
+
+    return (
+      <Redirect to={`/${colorString}`} />
+    );
   }
 }

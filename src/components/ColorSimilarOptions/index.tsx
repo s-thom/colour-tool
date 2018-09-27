@@ -7,16 +7,9 @@ import SwatchList from '../SwatchList';
 
 interface IColorSimilarOptionsProps {
   color: chroma.Color;
-  onColorChange: (color: chroma.Color) => void;
 }
 
 export default class ColorSimilarOptions extends React.Component<IColorSimilarOptionsProps> {
-
-  @autobind
-  onColorChange(color: chroma.Color) {
-    this.props.onColorChange(color);
-  }
-
   render() {
     const {
       color,
@@ -47,7 +40,6 @@ export default class ColorSimilarOptions extends React.Component<IColorSimilarOp
               satPos2,
             ]}
             showHex={true}
-            onColorSelected={this.onColorChange}
           />
         </div>
         <div className="ColorSimilarOptions-row">
@@ -62,7 +54,6 @@ export default class ColorSimilarOptions extends React.Component<IColorSimilarOp
                 brightPos2,
               ]}
               showHex={true}
-              onColorSelected={this.onColorChange}
             />
           </div>
         </div>

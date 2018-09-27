@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import ColorPickerApp from '../ColorPickerApp';
+import Page404 from '../404';
 
 export default class RouteColor extends React.Component<IRouteComponentProps> {
   render() {
     return (
-      <div>404</div>
+      <Page404 />
     );
   }
 }
