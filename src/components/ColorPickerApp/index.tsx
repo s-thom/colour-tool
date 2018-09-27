@@ -7,13 +7,14 @@ import ColorPickerSliders from '../ColorPickerSliders';
 import ColorInfoTable from '../ColorInfoTable';
 import ColorSimilarOptions from '../ColorSimilarOptions';
 import ContrastText from '../ContrastText';
+import RouterRedirectColor from '../RouterRedirectColor';
 
 interface IColorPickerAppProps {
-  temp?: false;
+  current: chroma.Color;
 }
 
 interface IColorPickerAppState {
-  current: chroma.Color;
+  redirectTo?: chroma.Color;
 }
 
 export default class ColorPickerApp extends React.Component<IColorPickerAppProps, IColorPickerAppState> {
@@ -21,7 +22,7 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
     super(props);
 
     this.state = {
-      current: chroma.random(),
+
     };
   }
 
@@ -29,7 +30,7 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
   onColorChange(color: chroma.Color) {
     this.setState((prevState) => ({
       ...prevState,
-      current: color,
+      redirectTo: color,
     }));
   }
 
@@ -41,7 +42,16 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
   render() {
     const {
       current,
+    } = this.props;
+    const {
+      redirectTo,
     } = this.state;
+
+    if (redirectTo) {
+      return (
+        <RouterRedirectColor color={redirectTo} />
+      );
+    }
 
     return (
       <div className="ColorPickerApp">

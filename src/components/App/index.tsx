@@ -1,8 +1,15 @@
 import * as React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import * as chroma from 'chroma-js';
 import './index.css';
 
 import ColorPickerApp from '../ColorPickerApp';
+import RouteColor from '../RouteColor';
+import RouteRandomColor from '../RouteRandomColor';
 
 class App extends React.Component {
   render() {
@@ -10,9 +17,13 @@ class App extends React.Component {
     const end = chroma('#f6d');
 
     return (
-      <div className="App">
-        <ColorPickerApp />
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/:color([A-Fa-f0-9]{6})" component={RouteColor} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
