@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Colour Tool",
+  "name": "Colour Tool",
   "icons": [
     {
       "src": "icon-32.png",
