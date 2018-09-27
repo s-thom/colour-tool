@@ -12,13 +12,10 @@ import { Link } from 'react-router-dom';
 
 interface IColorPickerAppProps {
   current: chroma.Color;
+  onColorChange: (color: chroma.Color) => void;
 }
 
-interface IColorPickerAppState {
-  redirectTo?: chroma.Color;
-}
-
-export default class ColorPickerApp extends React.Component<IColorPickerAppProps, IColorPickerAppState> {
+export default class ColorPickerApp extends React.Component<IColorPickerAppProps> {
   constructor(props: IColorPickerAppProps) {
     super(props);
 
@@ -29,10 +26,7 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
 
   @autobind
   onColorChange(color: chroma.Color) {
-    this.setState((prevState) => ({
-      ...prevState,
-      redirectTo: color,
-    }));
+    this.props.onColorChange(color);
   }
 
   @autobind
@@ -44,15 +38,6 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
     const {
       current,
     } = this.props;
-    const {
-      redirectTo,
-    } = this.state;
-
-    if (redirectTo) {
-      return (
-        <RouterRedirectColor color={redirectTo} />
-      );
-    }
 
     return (
       <div className="ColorPickerApp">
