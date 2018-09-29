@@ -1,0 +1,26 @@
+.Navigation {
+  position: absolute;
+  z-index: 1;
+  height: 2em;
+  width: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Navigation-link-list {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Navigation-link {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.Navigation-active-link,
+.Navigation-link:hover {
+  text-decoration: underline;
+}
