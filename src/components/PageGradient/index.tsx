@@ -20,6 +20,8 @@ interface IPageGradientState {
   endColor: chroma.Color;
 }
 
+const textBgColor = chroma.hex('#dddddd');
+
 export default class PageGradient extends React.Component<IPageGradientProps, IPageGradientState> {
   constructor(props: IPageGradientProps) {
     super(props);
@@ -90,7 +92,7 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
         />
         <div className="PageGradient-content">
           <Card className="PageGradient-info-container">
-            <ColorSpan color={chroma('white')}>{gradientStr}</ColorSpan>
+            <ColorSpan color={textBgColor}>{gradientStr}</ColorSpan>
             <h2>Colours</h2>
             <div className="PageGradient-swatches">
               <SwatchList

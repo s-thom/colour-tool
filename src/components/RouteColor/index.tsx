@@ -39,6 +39,12 @@ export default class RouteColor extends React.Component<IRouteComponentProps, IR
     this.delayedUrlUpdate(color);
   }
 
+  componentDidUpdate(prevProps: IRouteComponentProps, prevState: IRouteColorState) {
+    if (prevProps.match.params.color !== this.props.match.params.color) {
+      this.onColorChange(chroma.hex(`#${this.props.match.params.color}`));
+    }
+  }
+
   render() {
     const {
       color,
