@@ -9,6 +9,7 @@ import './index.css';
 import Route404 from '../Route404';
 import RouteColor from '../RouteColor';
 import RouteRandomColor from '../RouteRandomColor';
+import RouteGradient from '../RouteGradient';
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={RouteRandomColor} />
             <Route path="/random" exact component={RouteRandomColor} />
+            <Route path="/gradient" component={RouteGradient} />
             <Route path="/:color([A-Fa-f0-9]{6,6})" component={RouteColor} />
             <Route component={Route404} />
           </Switch>
