@@ -5,6 +5,7 @@ import './index.css';
 import { Link } from 'react-router-dom';
 import Card from '../Card';
 import ColorPickerSliders from '../ColorPickerSliders';
+import ColorSpan from '../ColorSpan';
 import ContrastText from '../ContrastText';
 import SwatchList from '../SwatchList';
 
@@ -35,7 +36,7 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
       endColor,
     } = this.state;
 
-    return `linear-gradient(-0.125turn, ${startColor.css()} 0%, ${endColor.css()} 100%)`;
+    return `linear-gradient(-0.625turn, ${startColor.css()}, ${endColor.css()})`;
   }
 
   @autobind
@@ -77,17 +78,20 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
       startColor,
       endColor,
     ]);
+    const gradientStr = this.makeCssGradientString();
 
     return (
       <div className="PageGradient">
         <div
           className="PageGradient-background"
           style={{
-            background: this.makeCssGradientString(),
+            background: gradientStr,
           }}
         />
         <div className="PageGradient-content">
           <Card className="PageGradient-info-container">
+            <ColorSpan color={chroma('white')}>{gradientStr}</ColorSpan>
+            <h2>Colours</h2>
             <div className="PageGradient-swatches">
               <SwatchList
                 colors={scale.colors(7, null)}
@@ -110,7 +114,7 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
               <button
                 className="PageGradient-random-button"
                 style={{
-                  background: this.makeCssGradientString(),
+                  background: gradientStr,
                 }}
                 onClick={this.onRandomClick}
               >
