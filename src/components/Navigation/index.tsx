@@ -15,8 +15,8 @@ class Navigation extends React.Component<IRouteComponentProps> {
     } = this.props;
 
     return (
-      <div className="Navigation">
-        <div className="Navigation-link-list">
+      <header className="Navigation">
+        <nav className="Navigation-link-list">
           <NavLink
             className="Navigation-link"
             activeClassName="Navigation-active-link"
@@ -27,8 +27,8 @@ class Navigation extends React.Component<IRouteComponentProps> {
             activeClassName="Navigation-active-link"
             to="/gradient"
           >Basic Gradient</NavLink>
-        </div>
-      </div>
+        </nav>
+      </header>
     );
   }
 }
