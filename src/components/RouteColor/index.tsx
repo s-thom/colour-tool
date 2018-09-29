@@ -5,23 +5,48 @@ import autobind from 'autobind-decorator';
 import ColorPickerApp from '../ColorPickerApp';
 import {
   hexWithoutHash,
+  limitRate,
 } from '../../util';
 
-export default class RouteColor extends React.Component<IRouteComponentProps> {
+interface IRouteColorState {
+  color: chroma.Color;
+}
+
+const URL_RATE_LIMIT = 100;
+
+export default class RouteColor extends React.Component<IRouteComponentProps, IRouteColorState> {
+  delayedUrlUpdate: (color: chroma.Color) => void;
+
+  constructor(props: IRouteComponentProps) {
+    super(props);
+
+    this.state = {
+      color: chroma.hex(`#${this.props.match.params.color}`),
+    };
+
+    this.delayedUrlUpdate = limitRate((color: chroma.Color) => {
+      this.props.history.replace(`/${hexWithoutHash(color)}`);
+    }, URL_RATE_LIMIT);
+  }
 
   @autobind
   onColorChange(color: chroma.Color) {
-    this.props.history.push(`/${hexWithoutHash(color)}`);
+    this.setState((prevState) => ({
+      ...prevState,
+      color,
+    }));
+
+    this.delayedUrlUpdate(color);
   }
 
   render() {
     const {
-      match,
-    } = this.props;
+      color,
+    } = this.state;
 
     return (
       <ColorPickerApp
-        current={chroma.hex(`#${match.params.color}`)}
+        current={color}
         onColorChange={this.onColorChange}
       />
     );
