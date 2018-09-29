@@ -35,7 +35,7 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
       endColor,
     } = this.state;
 
-    return `linear-gradient(0.125turn, ${startColor.css()} 0%, ${endColor.css()} 100%)`;
+    return `linear-gradient(-0.125turn, ${startColor.css()} 0%, ${endColor.css()} 100%)`;
   }
 
   @autobind
@@ -51,6 +51,15 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
     this.setState((prevState) => ({
       ...prevState,
       endColor: color,
+    }));
+  }
+
+  @autobind
+  onRandomClick() {
+    this.setState((prevState) => ({
+      ...prevState,
+      startColor: chroma.random(),
+      endColor: chroma.random(),
     }));
   }
 
@@ -81,31 +90,32 @@ export default class PageGradient extends React.Component<IPageGradientProps, IP
           <Card className="PageGradient-info-container">
             <div className="PageGradient-swatches">
               <SwatchList
-                colors={scale.colors(5, null)}
+                colors={scale.colors(7, null)}
                 showHex={true}
               />
             </div>
           </Card>
           <Card className="PageGradient-sliders-container">
+            <h2>Start Colour</h2>
             <ColorPickerSliders
               color={startColor}
               onColorChange={this.onStartColorChange}
             />
+            <h2>End Colour</h2>
             <ColorPickerSliders
               color={endColor}
               onColorChange={this.onEndColorChange}
             />
             <div className="PageGradient-random-container">
-              <Link to="/random">
-                <button
-                  className="PageGradient-random-button"
-                  style={{
-                    background: this.makeCssGradientString(),
-                  }}
-                >
-                  <ContrastText bgColor={chroma.average([startColor, endColor], 'lab')}>Random</ContrastText>
-                </button>
-              </Link>
+              <button
+                className="PageGradient-random-button"
+                style={{
+                  background: this.makeCssGradientString(),
+                }}
+                onClick={this.onRandomClick}
+              >
+                <ContrastText bgColor={chroma.average([startColor, endColor], 'lab')}>Random</ContrastText>
+              </button>
             </div>
           </Card>
         </div>

@@ -1,0 +1,72 @@
+.PageGradient {
+  height: 100%;
+}
+
+.PageGradient-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.PageGradient-content {
+  position: relative;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.PageGradient-info-container {
+}
+
+.PageGradient-sliders-container {
+  order: -1;
+  margin-bottom: 1em;
+}
+
+.PageGradient-random-container {
+  margin-top: 1em;
+}
+
+.PageGradient-random-button {
+  border: none;
+  border-radius: 0.1em;
+  padding: 0.4em 0.6em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .PageGradient-content {
+    flex-direction: row;
+  }
+
+  .PageGradient-info-container {
+    margin-bottom: 0;
+    margin-right: 1em;
+    flex-grow: 1;
+  }
+
+  .PageGradient-sliders-container {
+    flex-basis: 300px;
+    order: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1300px) {
+
+  .PageGradient-info-container {
+    display: flex;
+  }
+
+  .PageGradient-info-container .ColorInfo {
+    margin-right: 1em;
+    flex-grow: 1;
+  }
+
+  .PageGradient-info-container .ColorSimilarOptions {
+    flex-grow: 1;
+  }
+}
