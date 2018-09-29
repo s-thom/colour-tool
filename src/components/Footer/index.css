@@ -1,0 +1,18 @@
+.Footer {
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  width: 100%;
+}
+
+.Footer-link {
+  color: #ffffff;
+}
+
+.Footer-logo {
+  width: 1em;
+  height: 1em;
+  vertical-align: text-bottom;
+}

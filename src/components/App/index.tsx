@@ -11,6 +11,7 @@ import RouteColor from '../RouteColor';
 import RouteRandomColor from '../RouteRandomColor';
 import RouteGradient from '../RouteGradient';
 import Navigation from '../Navigation';
+import Footer from '../Footer';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class App extends React.Component {
               <Route component={Route404} />
             </Switch>
           </div>
+          <Footer />
         </div>
       </Router>
     );
