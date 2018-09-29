@@ -18,6 +18,12 @@
 }
 
 .PageGradient-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.PageGradient-swatches {
+  flex-grow: 1;
 }
 
 .PageGradient-sliders-container {
