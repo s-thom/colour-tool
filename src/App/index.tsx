@@ -6,12 +6,12 @@ import {
 } from 'react-router-dom';
 import './index.css';
 
-import Route404 from '../Route404';
-import RouteColor from '../RouteColor';
-import RouteRandomColor from '../RouteRandomColor';
-import RouteGradient from '../RouteGradient';
-import Navigation from '../Navigation';
-import Footer from '../Footer';
+import Route404 from '../routes/Route404';
+import RouteColor from '../routes/RouteColor';
+import RouteRandomColor from '../routes/RouteRandomColor';
+import RouteGradient from '../routes/RouteGradient';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 class App extends React.Component {
   render() {

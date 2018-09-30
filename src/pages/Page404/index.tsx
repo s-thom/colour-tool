@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as chroma from 'chroma-js';
-import Card from '../Card';
-import Swatch from '../Swatch';
+import Card from '../../components/Card';
+import Swatch from '../../components/Swatch';
 import './index.css';
 
 const color404 = chroma.hex('#440044');
