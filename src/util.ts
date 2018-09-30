@@ -37,3 +37,7 @@ export function limitRate<T>(fn: (value: T) => void, delayMs: number) {
     timeout = window.setTimeout(timeoutHandler, delayMs);
   };
 }
+
+export function arrayRandom<T>(arr: T[]) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}

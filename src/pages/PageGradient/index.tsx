@@ -2,12 +2,14 @@ import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
 import './index.css';
-import { Link } from 'react-router-dom';
-import Card from '../Card';
-import ColorPickerSliders from '../ColorPickerSliders';
-import ColorSpan from '../ColorSpan';
-import ContrastText from '../ContrastText';
-import SwatchList from '../SwatchList';
+import {
+  Link,
+} from 'react-router-dom';
+import Card from '../../components/Card';
+import ColorPickerSliders from '../../components/ColorPickerSliders';
+import ColorSpan from '../../components/ColorSpan';
+import ContrastText from '../../components/ContrastText';
+import SwatchList from '../../components/SwatchList';
 
 interface IPageGradientProps {
   // current: chroma.Color;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
 
-import ColorPickerApp from '../ColorPickerApp';
+import PageColor from '../../pages/PageColor';
 import {
   hexWithoutHash,
   limitRate,
@@ -51,7 +51,7 @@ export default class RouteColor extends React.Component<IRouteComponentProps, IR
     } = this.state;
 
     return (
-      <ColorPickerApp
+      <PageColor
         current={color}
         onColorChange={this.onColorChange}
       />
