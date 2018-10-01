@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  /* position: relative; */
+  height: 100%;
+}
+
+.App-area {
+  padding-top: 2em;
+  height: 100%;
+}

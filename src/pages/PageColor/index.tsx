@@ -2,21 +2,21 @@ import * as React from 'react';
 import * as chroma from 'chroma-js';
 import autobind from 'autobind-decorator';
 import './index.css';
-import Card from '../Card';
-import ColorPickerSliders from '../ColorPickerSliders';
-import ColorInfoTable from '../ColorInfoTable';
-import ColorSimilarOptions from '../ColorSimilarOptions';
-import ContrastText from '../ContrastText';
-import RouterRedirectColor from '../RouterRedirectColor';
+import Card from '../../components/Card';
+import ColorPickerSliders from '../../components/ColorPickerSliders';
+import ColorInfoTable from '../../components/ColorInfoTable';
+import ColorSimilarOptions from '../../components/ColorSimilarOptions';
+import ContrastText from '../../components/ContrastText';
+import RouterRedirectColor from '../../routes/RouterRedirectColor';
 import { Link } from 'react-router-dom';
 
-interface IColorPickerAppProps {
+interface IPageColorProps {
   current: chroma.Color;
   onColorChange: (color: chroma.Color) => void;
 }
 
-export default class ColorPickerApp extends React.Component<IColorPickerAppProps> {
-  constructor(props: IColorPickerAppProps) {
+export default class PageColor extends React.Component<IPageColorProps> {
+  constructor(props: IPageColorProps) {
     super(props);
 
     this.state = {
@@ -40,15 +40,15 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
     } = this.props;
 
     return (
-      <div className="ColorPickerApp">
+      <div className="PageColor">
         <div
-          className="ColorPickerApp-background"
+          className="PageColor-background"
           style={{
             backgroundColor: current.css(),
           }}
         />
-        <div className="ColorPickerApp-content">
-          <Card className="ColorPickerApp-info-container">
+        <div className="PageColor-content">
+          <Card className="PageColor-info-container">
             <ColorInfoTable
               color={current}
             />
@@ -56,15 +56,15 @@ export default class ColorPickerApp extends React.Component<IColorPickerAppProps
               color={current}
             />
           </Card>
-          <Card className="ColorPickerApp-sliders-container">
+          <Card className="PageColor-sliders-container">
             <ColorPickerSliders
               color={current}
               onColorChange={this.onColorChange}
             />
-            <div className="ColorPickerApp-random-container">
+            <div className="PageColor-random-container">
               <Link to="/random">
                 <button
-                  className="ColorPickerApp-random-button"
+                  className="PageColor-random-button"
                   style={{
                     backgroundColor: current.css(),
                   }}

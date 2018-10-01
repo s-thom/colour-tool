@@ -56,11 +56,13 @@ export default class GradientSlider extends React.Component<IGradientSliderProps
   }
 
   @autobind
-  onGradientMouseDown() {
+  onGradientMouseDown(event: React.MouseEvent) {
     this.setState((prevState) => ({
       ...prevState,
       isMouseDown: true,
     }));
+
+    this.props.onValueChanged(this.calculateValueForXPosition(event.clientX));
   }
 
   @autobind
